@@ -29,7 +29,7 @@ class PhoneBookRequest extends FormRequest
         return [
             'first_name' => 'required|string|max:250',
             'last_name' => 'nullable|string|max:250',
-            'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone_number' => 'required|unique:phone_books,phone_number|string|regex:/^\+?[0-9]{10,}$/|min:10',
             'country_code' => 'nullable|valid_country_code',
             'timezone' => 'nullable|valid_timezone',
         ];
